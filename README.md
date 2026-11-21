@@ -1,93 +1,320 @@
 # Trabalho_POO_Agenda
-## Instruções Iniciais
-1. Abra sua IDE (IntelliJ ou VSCode)
-2. Crie uma pasta no seu computador e de a ela o nome (Trabalho_POO)
-3. Abra essa pasta em sua IDE
-4. Abra o terminal e digite o seguinte comando
+
+Projeto desenvolvido para a disciplina de Programação Orientada a Objetos (POO).
+
+Este repositório contém o código-fonte de uma aplicação de agenda, desenvolvida em Java, utilizando conceitos de Orientação a Objetos.
+
+---
+
+# 1. Configuração inicial do projeto
+
+Siga os passos abaixo para configurar o projeto no seu computador.
+
+### 1.1. Preparando o ambiente
+
+1. Abra sua IDE de preferência (IntelliJ IDEA ou VS Code).
+2. Crie uma pasta no seu computador chamada `Trabalho_POO`.
+3. Abra essa pasta na sua IDE.
+4. Abra o terminal da IDE e execute o comando:
+
 ```bash
-git clone "https://github.com/Daniel0724-BAS/Trabalho_POO_Agenda.git"
+git clone https://github.com/Daniel0724-BAS/Trabalho_POO_Agenda.git
 ```
-- Isso fará com que o repositório do Git Hub seja clonado para sua IDE.
+
+Esse comando fará o download do repositório do GitHub para o seu computador.
+
+5. Entre na pasta do projeto:
+
+```bash
+cd Trabalho_POO_Agenda
+```
+
+6. Para garantir que você está utilizando a versão mais atualizada do projeto, execute:
+
 ```bash
 git pull origin main
 ```
-- Isso atualizará sua pasta de acordo com as atualizações feita no repositório do Git Hub. (Deve aparecer "Already up to date.", para estar pronto)
-5. Abra a pasta [Trabalho_POO_Agenda]
-6. Abra a pasta [src]
-7. Abra a pasta [java] -> (Se estiver no IntelliJ veja isso) Verifique se ela está com a cor azul. Se não, clique com o botão direito do mouse, encontre a opção: "Mark Direcotry As"; escolha a opção: "Sources Root".
-8. Na pasta [Java] você encontrá 3 pastas. Por enquanto foque apenas na pasta [Model]
-9. Abra a pasta [Model] ela guardará as entidades do projeto.
-10. Abra o arquivo que você foi designado e LEIA OS PASSOS ABAIXO.
 
-## EXTREMAMENTE IMPORTANTE (LEIA)
-- Sempre antes de começar a codificar, siga estritamente os seguintes passos.
-- Estamos utilizando o Git Hub, logo temos algumas regras que devem ser seguidas.
-### REGRAS
-Antes de começar a desenvolver qualquer coisa sempre digite esse comando no terminal:
+Se aparecer a mensagem `Already up to date.`, significa que não existem atualizações pendentes para baixar.
+
+### 1.2. Configurando a estrutura do projeto
+
+Após clonar o repositório:
+
+1. Abra a pasta `Trabalho_POO_Agenda`.
+2. Entre na pasta `src`.
+3. Entre na pasta `java`.
+
+**Importante para quem utiliza IntelliJ IDEA:**
+
+Verifique se a pasta `java` está identificada como `Sources Root` (normalmente aparece na cor azul).
+
+Caso não esteja:
+
+1. Clique com o botão direito na pasta `java`.
+2. Selecione `Mark Directory As`.
+3. Escolha `Sources Root`.
+
+### 1.3. Conhecendo a estrutura de pastas
+
+Dentro da pasta `java`, você encontrará três pastas, cada uma com uma responsabilidade dentro do projeto.
+
+Neste primeiro momento, concentre-se na pasta `Model`.
+
+A pasta `Model` será responsável por armazenar as classes que representam as entidades do sistema.
+
+Abra a classe que foi designada para você desenvolver e confira as especificações da tarefa na seção correspondente deste README.
+
+---
+
+# 2. Regras de utilização do Git e GitHub
+
+<ins>**ATENÇÃO: Leia esta seção antes de começar a desenvolver qualquer funcionalidade.**</ins>
+
+Como o projeto é desenvolvido em equipe e utiliza o GitHub para compartilhar o código, todos devem seguir um mesmo fluxo de trabalho.
+
+Isso evita conflitos, perda de código e alterações acidentais na versão principal do projeto.
+
+## 2.1. Antes de começar a desenvolver
+
+Sempre que for iniciar uma tarefa, abra o terminal na pasta do projeto e execute:
+
 ```bash
+git switch main
 git pull origin main
 ```
-Para desenvolver uma nova funcionalidade do projeto, você deve utilizar os seguintes comandos:
-1.
-```bash
-git switch -c "feat/nome-funcionalidade ou nome-classe"
-```
-- Isso cria um espaço de trabalho para você, protegendo o código já desenvolvido de futuras falhas.
 
-2. Codifique normalmente na classe que foi designado, lembre-se o nome dado no comando deve ser o mesmo da classe ou funcionalidade que você foi designado.
-3. Após terminar de desenvolver a tarefa que foi designado faça os seguintes comandos:
+O primeiro comando garante que você está na branch principal (`main`).
+
+O segundo comando atualiza sua versão local com as alterações que já foram enviadas ao GitHub.
+
+**Não comece a desenvolver antes de atualizar seu projeto!**
+
+## 2.2. Criando uma branch para sua tarefa
+
+Cada integrante deve desenvolver sua tarefa em uma branch própria, sem modificar diretamente a `main`.
+
+Para criar uma nova branch, utilize:
+
+```bash
+git switch -c feat/nome-da-funcionalidade
+```
+
+Exemplo:
+
+```bash
+git switch -c feat/classe-evento
+```
+
+O comando cria uma nova branch e já direciona você para ela.
+
+**Padrão para nomear as branches:**
+
+- `feat/nome`: criação de uma nova funcionalidade ou classe.
+- `fix/nome`: correção de um erro.
+- `refactor/nome`: reorganização ou melhoria do código sem alterar seu comportamento.
+
+Utilize nomes curtos e que identifiquem claramente a tarefa.
+
+## 2.3. Desenvolvendo sua tarefa
+
+Depois de criar a branch:
+
+1. Abra a classe que foi designada para você.
+2. Desenvolva somente o que foi solicitado.
+3. Evite modificar arquivos que não fazem parte da sua tarefa.
+4. Teste o código antes de enviá-lo.
+
+## 2.4. Verificando as alterações
+
+Quando terminar sua implementação, execute:
+
 ```bash
 git status
 ```
-- Mostra o que foi alterado nos arquivos.
-- Copie o caminho que estiver vermelho; Exemplo: "src/java/model/Agenda.java"
-- Depois digite o seguinte comando:
+
+Esse comando mostra quais arquivos foram modificados.
+
+Os arquivos em vermelho representam alterações que ainda não foram adicionadas à área de preparação (*staging area*).
+
+Para adicionar um arquivo específico, utilize:
+
 ```bash
-git add src/java/model/Agenda.java
+git add caminho/do/arquivo
 ```
-4. Após isso se você der um (git status) o "src/java/model/Agenda.java" estará verde, se isso acontecer está correto.
-5. Digite o seguinte no terminal:
+
+Exemplo:
+
 ```bash
-git commit -m "Mensagem convencional de commit"
+git add src/java/Model/Evento.java
 ```
-### Mensagens convencionais de commit
-- Se for uma <b>nova funcionalidade</b>: "feat: Implementa nome-nova-funcionalidade"
-- Se for uma <b>alteração em código</b> já existente <b>QUE ALTERE A LÓGICA</b>: "refactor: Altera descreva-o-que-alterou"
-- Se for uma <b>alteração em código</b> já existente <b>QUE NÃO ALTERE A LÓGICA</b>: "style: Altera descreva-o-que-alterou"
-6. depois disso: digite:
+
+**Atenção:** utilize o caminho real do arquivo no seu projeto. O Git diferencia letras maiúsculas de minúsculas em alguns ambientes.
+
+Se quiser adicionar todos os arquivos modificados, também é possível utilizar:
+
 ```bash
-git push origin main
+git add .
 ```
-7. Depois abra o Git Hub no navegador
-8. Encontre a aba Pull Requests lá em cima nas opções [Code, Issues, Pull request ...].
-9. Submeta um pull request da branch [Espaço de trabalho que havia criado].
-10. volte para o sua IDE, digite:
+
+Execute novamente:
+
+```bash
+git status
+```
+
+Os arquivos adicionados deverão aparecer como alterações preparadas para commit (normalmente em verde).
+
+## 2.5. Criando um commit
+
+Depois de adicionar os arquivos, registre suas alterações com:
+
+```bash
+git commit -m "tipo: descrição da alteração"
+```
+
+Utilizamos mensagens convencionais para facilitar a identificação do que foi desenvolvido.
+
+### Padrão das mensagens de commit
+
+| Tipo | Quando utilizar | Exemplo |
+|---|---|---|
+| `feat` | Nova funcionalidade ou classe | `feat: implementa classe Evento` |
+| `fix` | Correção de erros | `fix: corrige validação de horário` |
+| `refactor` | Alteração na estrutura ou lógica interna do código | `refactor: reorganiza métodos da classe Evento` |
+| `style` | Alterações visuais ou de formatação sem modificar a lógica | `style: ajusta formatação da classe Evento` |
+
+## 2.6. Enviando sua branch para o GitHub
+
+Depois de criar o commit, envie sua branch para o GitHub:
+
+```bash
+git push -u origin nome-da-sua-branch
+```
+
+Exemplo:
+
+```bash
+git push -u origin feat/classe-evento
+```
+
+O comando envia suas alterações para o repositório remoto.
+
+## 2.7. Criando um Pull Request
+
+Após enviar sua branch:
+
+1. Acesse o repositório no GitHub.
+2. Entre na aba `Pull requests`.
+3. Clique em `New pull request`.
+4. Em `base`, selecione `main`.
+5. Em `compare`, selecione a branch que você criou.
+6. Confira as alterações e clique em `Create pull request`.
+7. Aguarde a revisão e aprovação antes de integrar suas alterações à `main`.
+
+**Importante:** não faça o merge por conta própria sem seguir o processo de revisão combinado pela equipe.
+
+## 2.8. Finalizando a tarefa
+
+Depois que seu Pull Request for aprovado e integrado à `main`, volte para sua IDE e execute:
+
 ```bash
 git switch main
 ```
+
+Em seguida:
+
 ```bash
 git pull origin main
 ```
-- Verifique se seus códigos estão ai após ver a mensagem de "Already up to date."
 
-## Sprint 1
-### Classe Evento
-### Atributos
-- private int	id -> Identificador único dentro da agenda\
-- private String titulo -> Título obrigatório\
-- private String descricao -> Detalhes opcionais\
-- private LocalTime	horarioInicio -> Hora inicial\
-- private LocalTime	horarioFim -> Hora final\
-- private boolean	concluido -> false = pendente; true = concluído\
+Agora sua versão local estará atualizada com as alterações integradas ao projeto.
 
-### Metodos
-- Evento(int id, String titulo, String descricao, LocalTime inicio, LocalTime fim) = Construtor; inicia concluido=false\
-- int getId()	Consulta ID; -> sem setId para evitar alterações\
-- String getTitulo() / void setTitulo(String titulo) -> Lê/edita título\
-- String getDescricao() / void setDescricao(String descricao) ->	Lê/edita descrição\
-- LocalTime getHorarioInicio() / void setHorarioInicio(LocalTime inicio) -> Lê/edita início\
-- LocalTime getHorarioFim() / void setHorarioFim(LocalTime fim) -> Lê/edita fim\
-- boolean isConcluido() / void setConcluido(boolean concluido) -> Lê/atualiza status\
-- void concluir() / void reabrir() -> Atalhos para alterar status\
-- boolean horarioValido() -> Confere se fim é posterior ao início\
+Você poderá começar uma nova tarefa seguindo novamente esse fluxo.
+
+---
+
+# 3. Sprint 1
+
+## Classe: Evento
+
+Nesta sprint, será desenvolvida a classe `Evento`, responsável por representar os compromissos cadastrados na agenda.
+
+A classe deverá armazenar as informações de cada evento, permitir a consulta e alteração de seus dados e controlar se ele foi concluído ou não.
+
+### 3.1. Atributos
+
+Todos os atributos devem possuir visibilidade `private`.
+
+| Atributo | Tipo | Descrição |
+|---|---|---|
+| `id` | `int` | Identificador único do evento dentro da agenda. |
+| `titulo` | `String` | Título obrigatório do evento. |
+| `descricao` | `String` | Descrição ou detalhes adicionais. Pode ser opcional. |
+| `horarioInicio` | `LocalTime` | Horário de início do evento. |
+| `horarioFim` | `LocalTime` | Horário de término do evento. |
+| `concluido` | `boolean` | Indica se o evento foi concluído. `false` representa pendente e `true` representa concluído. |
+
+### 3.2. Construtor
+
+A classe deverá possuir o seguinte construtor:
+
+```java
+Evento(int id, String titulo, String descricao,
+       LocalTime inicio, LocalTime fim)
+```
+
+Responsabilidades:
+
+- Inicializar os atributos recebidos.
+- Definir o atributo `concluido` inicialmente como `false`.
+
+### 3.3. Métodos
+
+A classe deverá implementar os seguintes métodos:
+
+| Método | Responsabilidade |
+|---|---|
+| `int getId()` | Retornar o identificador do evento. |
+| `String getTitulo()` | Retornar o título. |
+| `void setTitulo(String titulo)` | Alterar o título. |
+| `String getDescricao()` | Retornar a descrição. |
+| `void setDescricao(String descricao)` | Alterar a descrição. |
+| `LocalTime getHorarioInicio()` | Retornar o horário de início. |
+| `void setHorarioInicio(LocalTime inicio)` | Alterar o horário de início. |
+| `LocalTime getHorarioFim()` | Retornar o horário de término. |
+| `void setHorarioFim(LocalTime fim)` | Alterar o horário de término. |
+| `boolean isConcluido()` | Consultar se o evento foi concluído. |
+| `void setConcluido(boolean concluido)` | Atualizar o estado de conclusão. |
+| `void concluir()` | Marcar o evento como concluído. |
+| `void reabrir()` | Marcar o evento novamente como pendente. |
+| `boolean horarioValido()` | Verificar se o horário de término é posterior ao horário de início. |
+
+### 3.4. Regras importantes de implementação
+
+- O atributo `id` deve possuir apenas um método de leitura (`getId`). Não deve existir `setId`, evitando alterações no identificador após a criação do evento.
+- Todo evento deve começar com `concluido = false`.
+- O horário de término deve ser posterior ao horário de início.
+- O método `concluir()` deve alterar o estado do evento para `true`.
+- O método `reabrir()` deve alterar o estado do evento para `false`.
+
+**Observação:** utilize a classe `LocalTime`, pertencente ao pacote `java.time`, para representar os horários.
+
+Exemplo de importação:
+
+```java
+import java.time.LocalTime;
+```
+
+---
+
+# 4. Observações gerais
+
+- Respeite a estrutura de pastas já definida no projeto.
+- Utilize encapsulamento, mantendo os atributos privados.
+- Siga os padrões de nomenclatura do Java.
+- Evite alterar códigos desenvolvidos por outros integrantes sem comunicação prévia.
+- Em caso de dúvidas sobre a implementação, converse com a equipe antes de realizar alterações que possam afetar outras partes do projeto.
+
+**O objetivo é manter o código organizado, padronizado e integrado, permitindo que todos os integrantes desenvolvam suas tarefas sem prejudicar o trabalho dos demais.**
 
