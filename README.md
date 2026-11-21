@@ -305,6 +305,70 @@ Exemplo de importação:
 ```java
 import java.time.LocalTime;
 ```
+## Classe: Dia
+
+A classe `Dia` será responsável por representar um dia específico da agenda, armazenando sua data e os eventos cadastrados nele.
+
+Cada dia poderá conter, no máximo, 10 eventos. A classe também deverá permitir adicionar, consultar, listar e remover eventos.
+
+### 3.5.1. Atributos
+
+Todos os atributos devem possuir visibilidade `private`.
+
+| Atributo | Tipo | Descrição |
+|---|---|---|
+| `data` | `LocalDate` | Data que representa o dia da agenda. |
+| `eventos` | `List<Evento>` | Lista de eventos cadastrados nesse dia. |
+| `LIMITE_EVENTOS` | `static final int` | Constante que define o limite máximo de eventos por dia (10). |
+
+### 3.5.2. Construtor
+
+A classe deverá possuir o seguinte construtor:
+
+```java
+Dia(LocalDate data)
+```
+
+Responsabilidades:
+- Receber e armazenar a data correspondente ao dia.
+- Inicializar a lista de eventos vazia.
+
+### 3.5.3. Métodos
+
+A classe deverá implementar os seguintes métodos:
+
+| Método | Responsabilidade |
+|---|---|
+| `LocalDate getData()` | Retornar a data do dia. |
+| `List<Evento> getEventos()` | Retornar uma consulta protegida da lista de eventos. |
+| `int getQuantidadeEventos()` | Retornar a quantidade de eventos cadastrados. |
+| `int getLimiteEventos()` | Retornar o limite máximo de eventos (10). |
+| `boolean temVaga()` | Verificar se ainda existem vagas disponíveis para novos eventos. |
+| `boolean adicionarEvento(Evento evento)` | Validar e adicionar um evento à lista, caso seja possível. |
+| `Evento buscarEvento(int id)` | Localizar um evento pelo seu identificador. |
+| `boolean removerEvento(int id)` | Remover um evento da lista a partir do seu identificador. |
+| `List<Evento> listarEventos()` | Retornar a lista de eventos cadastrados no dia. |
+
+### 3.5.4. Regras importantes de implementação
+
+- Um dia pode possuir, no máximo, 10 eventos.
+- A lista de eventos deve ser inicializada vazia no construtor.
+- O método `temVaga()` deve retornar `true` quando a quantidade de eventos for menor que 10.
+- O método `adicionarEvento()` não deve permitir adicionar eventos quando o limite for atingido.
+- O método `adicionarEvento()` também deve impedir a inserção de eventos nulos.
+- O método `buscarEvento()` deve retornar o evento correspondente ao ID informado ou `null` caso não encontre.
+- O método `removerEvento()` deve retornar `true` quando conseguir remover o evento e `false` caso ele não exista.
+- Os métodos de consulta da lista não devem permitir que outras classes modifiquem diretamente a lista interna de eventos.
+
+### 3.5.5. Importações necessárias
+
+Utilize as seguintes classes da biblioteca Java:
+
+```java
+import java.time.LocalDate;
+import java.util.List;
+import java.util.ArrayList;
+```
 
 ---
 
