@@ -58,7 +58,7 @@ public class Evento {
 
     public boolean isConcluido() {
         return concluido;
-        
+
     }
 
     public void setConcluido(boolean concluido) {
@@ -74,6 +74,6 @@ public class Evento {
     }
 
     public boolean horarioValido() {
-        return horarioFim.isAfter(horarioInicio)
+        return horarioFim.isAfter(horarioInicio);
     }
 }
