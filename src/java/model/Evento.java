@@ -2,42 +2,23 @@ package model;
 
 import java.time.LocalTime;
 
-public class Evento {
+import exception.HorarioInvalidoException;
 
-    private int id;
-    private String titulo;
-    private String descricao;
+public class Evento extends ItemAgenda {
+
+    private static final long serialVersionUID = 1L;
+
     private LocalTime horarioInicio;
     private LocalTime horarioFim;
-    private boolean concluido;
 
-    public Evento(int id, String titulo, String descricao, LocalTime inicio, LocalTime fim) {
-        this.id = id;
-        this.titulo = titulo;
-        this.descricao = descricao;
+    public Evento(String titulo, LocalTime inicio, LocalTime fim) {
+        this(titulo, "", inicio, fim);
+    }
+
+    public Evento(String titulo, String descricao, LocalTime inicio, LocalTime fim) {
+        super(titulo, descricao);
         this.horarioInicio = inicio;
         this.horarioFim = fim;
-        this.concluido = false;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
     }
 
     public LocalTime getHorarioInicio() {
@@ -55,25 +36,37 @@ public class Evento {
     public void setHorarioFim(LocalTime fim) {
         this.horarioFim = fim;
     }
-
-    public boolean isConcluido() {
-        return concluido;
-
+    @Override
+    public String getTipo() {
+        return "Evento";
     }
-
-    public void setConcluido(boolean concluido) {
-        this.concluido = concluido;
+    @Override 
+    public String getResumo() {
+        return "Evento: " + getTitulo() + " (" + horarioInicio + " - " + horarioFim + ")";
     }
-
-    public void concluir() {
-        concluido = true;
+    @Override 
+    public LocalTime getHorarioReferencia() {
+        return horarioInicio;
     }
-
-    public void reabrir() {
-        concluido = false;
+    @Override 
+    public LocalTime getHorarioLimite() {
+        return horarioFim;
     }
-
-    public boolean horarioValido() {
-        return horarioFim.isAfter(horarioInicio);
+    @Override 
+    public void validar() throws HorarioInvalidoException {
+        if (horarioInicio == null || horarioFim == null) {
+            throw new HorarioInvalidoException("O evento precisa de horário de inicio e de fim.");
+        }
+        if (!horarioFim.isAfter(horarioInicio)) {
+            throw new HorarioInvalidoException("O horário de fim deve ser depois do horário de início.");
+        }
+    }
+    @Override 
+    public boolean conflitaCom(ItemAgenda outro) {
+        if (!(outro instanceof Evento)) {
+            return false;
+        }
+        Evento e = (Evento) outro;
+        return this.horarioInicio.isBefore(e.horarioFim) && e.horarioInicio.isBefore(this.horarioFim);
     }
 }
