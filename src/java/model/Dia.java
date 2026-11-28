@@ -98,7 +98,6 @@ public class Dia implements Serializable {
         return copia;
     }
 
-    // Maior prioridade primeiro. Só a Tarefa tem prioridade; Evento e Lembrete contam como 0.
     public List<ItemAgenda> listarPorPrioridade() {
         List<ItemAgenda> copia = new ArrayList<>(itens);
         copia.sort((a, b) -> {
